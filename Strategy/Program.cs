@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Strategy.Entities;
+using System;
 
 namespace Strategy
 {
@@ -13,8 +14,8 @@ namespace Strategy
             //        * могут изменяться, и отделите их от тех,* 
             //        * которые всегда остаются постоянными    *
             //        ******************************************
-           
-            
+
+
             //        ******************************************
             //        *       Принцип проектирования 2:        *
             //        ******************************************
@@ -23,8 +24,22 @@ namespace Strategy
             //        ******************************************
 
 
+            //        ******************************************
+            //        *       Принцип проектирования 3:        *
+            //        ******************************************
+            //        * Отдавайте предпочтение композиции      * 
+            //        * перед наследованием                    *
+            //        ******************************************
 
-
+            Duck mallard = new MallardDuck("MallardDuck");
+            mallard.DisplayName();
+            mallard.PerformQuack();
+            mallard.PerformFly();
+            Console.WriteLine("Change quack to squeak");
+            mallard.DisplayName();
+            mallard.setQuackBehavior(new Squeak());
+            mallard.PerformQuack();
+            mallard.PerformFly();
         }
     }
 }
